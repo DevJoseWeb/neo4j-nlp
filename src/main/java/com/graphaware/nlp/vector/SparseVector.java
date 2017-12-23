@@ -102,7 +102,7 @@ public class SparseVector {
         }
         return sum.get();
     }
-    
+
     public float norm() {
         return Double.valueOf(Math.sqrt(this.dot(this))).floatValue();
     }
@@ -111,6 +111,6 @@ public class SparseVector {
     public String toString() {
         return getList().toString(); //To change body of generated methods, choose Tools | Templates.
     }
- 
+
     
 }
