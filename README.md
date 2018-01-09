@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/graphaware/neo4j-nlp.svg?branch=master)](https://travis-ci.org/graphaware/neo4j-nlp)
 This [Neo4j](https://neo4j.com) plugin offers Graph Based Natural Language Processing capabilities.
 
-The main module, this module, provide a common interface for underlying text processors as well as a
-**Domain Specific Language** built atop stored procedures and functions making your Natural Language Processing
-workflow developer friendly.
+The main module, this module, provides a common interface for underlying text processors as well as a
+**Domain Specific Language** built atop stored procedures and functions, making your Natural Language Processing
+workflow developer-friendly.
 
-It comes in 2 versions, Community (open-sourced) and Enterprise with the following NLP features :
+It comes in 2 versions, Community (open-sourced) and Enterprise, with the following NLP features :
 
 ## Feature Matrix
 
@@ -34,15 +34,15 @@ Two NLP processor implementations are available, respectively [OpenNLP](https://
 
 From the [GraphAware plugins directory](https://products.graphaware.com), download the following `jar` files :
 
-* `neo4j-framework` (the JAR for this is labeled "graphaware-server-enterprise-all")
-* `neo4j-nlp`
-* `neo4j-nlp-stanfordnlp` or `neo4j-nlp-opennlp` or both
+* `framework-server-enterprise` (the JAR for this is labeled "graphaware-server-enterprise-all")
+* `nlp`
+* `nlp-open-nlp` or `nlp-stanford-nlp` or both
 
 and copy them in the `plugins` directory of Neo4j.
 
 *Take care that the version numbers of the framework you are using match with the version of Neo4J
-you are using*.  This is a common setup problem.  For example, if you are using Neo4j 3.3.0, all
-of the JARs you download should contain 3.3 in their version number.
+you are using*.  This is a common setup problem.  For example, if you are using Neo4j 3.3.1, all
+of the JARs you download should contain 3.3.1 in their version number.
 
 `plugins/` directory example :
 
@@ -52,7 +52,7 @@ of the JARs you download should contain 3.3 in their version number.
 -rw-r--r--  1 abc  staff  46678477 May 16 14:59 nlp-opennlp-3.3.1.51.2-SNAPSHOT.jar
 ```
 
-Append the following configuration in the `neo4j.conf` file in the `config/` directory:
+Append the following configuration in the `neo4j.conf` file in the `conf/` directory:
 
 ```
   dbms.unmanaged_extension_classes=com.graphaware.server=/graphaware
@@ -65,7 +65,7 @@ Start or restart your Neo4j database.
 
 Note: both concrete text processors are quite greedy - you will need to dedicate sufficient memory for to Neo4j heap space.
 
-Additionally, the following indexes and constraints are suggested to speed performance:
+Additionally, the following indexes and constraints are suggested to speed up performance:
 
 ```
 CREATE CONSTRAINT ON (n:AnnotatedText) ASSERT n.id IS UNIQUE;
